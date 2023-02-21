@@ -1,0 +1,2 @@
+# DiplomaDescktop
+Desktop project
