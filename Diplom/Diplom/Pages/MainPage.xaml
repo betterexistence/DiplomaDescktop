@@ -1,0 +1,61 @@
+﻿<Page x:Class="Diplom.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="MainPage"
+      Loaded="Page_Loaded">
+
+    <Grid Background="{StaticResource Background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="90*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Name="Header" Background="{StaticResource Red}">
+            <Button Content="Выход" Height="30" Width="40" HorizontalAlignment="Right" x:Name="ExitButton" Click="ExitButton_Click"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*" MinWidth="300"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="80*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="Menu" Grid.Column="0" Background="{StaticResource Orange}">
+                <TextBox 
+                    Margin="10"
+                    Style="{StaticResource SearchTextBox}"/>
+                <!--тривью-->
+                <Button x:Name="Welcome" Click="Welcome_Click" Content="Open Welocme Page"/>
+                <Button x:Name="DataGrid" Click="DataGrid_Click" Content="Open DataGrid"/>
+                <TreeView Background="Transparent"> 
+                    <TreeViewItem Header="Базы данных">
+                        <TreeViewItem Header="MS SQL Server" />
+                        <TreeViewItem Header="MySQL" />
+                        <TreeViewItem Header="MongoDB" />
+                        <TreeViewItem Header="Postgres" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="Языки программирования">
+                        <TreeViewItem Header="C-языки">
+                            <TreeViewItem Header="C#" />
+                            <TreeViewItem Header="C/C++" />
+                            <TreeViewItem Header="Java" />
+                        </TreeViewItem>
+                        <TreeViewItem Header="Basic">
+                            <TreeViewItem Header="Visual Basic" />
+                            <TreeViewItem Header="VB.Net" />
+                            <TreeViewItem Header="PureBasic" />
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+                
+            </StackPanel>
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="AliceBlue"/>
+            <DockPanel x:Name="Content" Grid.Column="2">
+                <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</Page>
