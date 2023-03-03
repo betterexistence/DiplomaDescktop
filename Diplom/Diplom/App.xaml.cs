@@ -8,10 +8,13 @@ using System.Windows;
 
 namespace Diplom
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+
     public partial class App : Application
     {
+
+        private void OpenMultiLineWindow_Click(object sender, RoutedEventArgs e)
+        {
+            //new MultiLineWindow().Show();
+        }
     }
 }

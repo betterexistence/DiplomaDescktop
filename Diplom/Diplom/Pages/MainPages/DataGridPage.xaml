@@ -22,7 +22,7 @@
                     </Button.ToolTip>
                     <Image Source="/Images/DataGrid/filter.png"/>
                 </Button>
-                <Button x:Name="UpdateData" Style="{StaticResource DataGrid-ToolbarButton}">
+                <Button x:Name="UpdateData" Style="{StaticResource DataGrid-ToolbarButton}" Click="UpdateData_Click">
                     <Image Source="/Images/DataGrid/updatedata.png"/>
                     <Button.ToolTip>
                         <ToolTip>
@@ -30,7 +30,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="AddNote" Style="{StaticResource DataGrid-ToolbarButton}">
+                <Button x:Name="AddNote" Style="{StaticResource DataGrid-ToolbarButton}" Click="AddNote_Click">
                     <Image Source="/Images/DataGrid/add.png"/>
                     <Button.ToolTip>
                         <ToolTip>
@@ -38,7 +38,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="EditNote" Style="{StaticResource DataGrid-ToolbarButton}">
+                <Button x:Name="EditNote" Style="{StaticResource DataGrid-ToolbarButton}" Click="EditNote_Click">
                     <Image Source="/Images/DataGrid/edit.png"/>
                     <Button.ToolTip>
                         <ToolTip>
@@ -46,7 +46,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="DeleteNote" Style="{StaticResource DataGrid-ToolbarButton}">
+                <Button x:Name="DeleteNote" Style="{StaticResource DataGrid-ToolbarButton}" Click="DeleteNote_Click">
                     <Image Source="/Images/DataGrid/delete.png"/>
                     <Button.ToolTip>
                         <ToolTip>
@@ -54,7 +54,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="AccpetChanges" Style="{StaticResource DataGrid-ToolbarButton}">
+                <Button x:Name="AccpetChanges" Style="{StaticResource DataGrid-ToolbarButton}" Click="AccpetChanges_Click">
                     <Image Source="/Images/DataGrid/accept.png"/>
                     <Button.ToolTip>
                         <ToolTip>
@@ -62,7 +62,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="CancelChanges" Style="{StaticResource DataGrid-ToolbarButton}">
+                <Button x:Name="CancelChanges" Style="{StaticResource DataGrid-ToolbarButton}" Click="CancelChanges_Click">
                     <Image Source="/Images/DataGrid/cancel.png"/>
                     <Button.ToolTip>
                         <ToolTip>
@@ -70,29 +70,35 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
+                <Button Click="ViewDoc_Click" x:Name="ViewDoc" Style="{StaticResource DataGrid-ToolbarButton}">
+                    <Image Source="/Images/DataGrid/view-file.png"/>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Посмотреть содержимое
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
             </StackPanel>
-            
-            <!--фиксануть высоту гриду(должно скролиться)-->
 
-                <DataGrid
-                    DockPanel.Dock="Top"
-                    Grid.Row="5"
-                    x:Name="DataGrid"
-                    IsReadOnly="True"
-                    AutoGenerateColumns="False" 
-                    Style="{DynamicResource DataGridStyle}"
-                    ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
-                    RowStyle="{DynamicResource DataGridRowStyle}"
-                    >
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
-                        <DataGridTextColumn Header="Position" IsReadOnly="True" Width="*" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="Position" IsReadOnly="True" Width="*" Binding="{Binding Position}"/>
-                        <DataGridTextColumn Header="Email Adress" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
-                        <DataGridTextColumn Header="Phone Number" IsReadOnly="True" Width="*" Binding="{Binding Phone}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+            <DataGrid
+                DockPanel.Dock="Top"
+                Grid.Row="6"
+                x:Name="DataGrid"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                Style="{DynamicResource DataGridStyle}"
+                ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
+                RowStyle="{DynamicResource DataGridRowStyle}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding dataId}"/>
+                    <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="Дата начала" Width="*" Binding="{Binding dateStart}"/>
+                    <DataGridTextColumn x:Name="MultiLine" Header="Объем" Width="*" Binding="{Binding volume}"/>
+                    <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding description}"/>
+                </DataGrid.Columns> 
+            </DataGrid>
 
-            </DockPanel>
+        </DockPanel>
     </Grid>
 </Page>
